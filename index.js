@@ -67,6 +67,7 @@ function configureDefaults(options) {
   config.toConsole = !!config.toConsole;
   config.rootSuiteTitle = config.rootSuiteTitle || 'Root Suite';
   config.testsuitesTitle = config.testsuitesTitle || 'Mocha Tests';
+  config.packageName = config.packageName || 'Mocha';
 
   if (config.antMode) {
     updateOptionsForAntMode(config);
@@ -184,7 +185,7 @@ function getJenkinsClassname (test, options) {
     parent.title && titles.unshift(parent.title);
     parent = parent.parent;
   }
-  return titles.join(options.suiteTitleSeparatedBy);
+  return options.packageName + options.suiteTitleSeparatedBy + titles[0];
 }
 
 /**
